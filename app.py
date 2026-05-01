@@ -22,15 +22,11 @@ app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 mail = Mail(app)
 
 
+import sqlite3
 
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root123",
-    database="skillbridge",
-    auth_plugin='mysql_native_password'
+db = sqlite3.connect("skillbridge.db", check_same_thread=False)
 
-)
+cursor = db.cursor()
 
 cursor = db.cursor(dictionary=True, buffered=True)
 
