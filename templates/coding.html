@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Coding Practice</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>LeetCode Practice</h1>
+
+        <br>
+
+        {% for q in questions %}
+
+            <div class="card">
+
+                <h2>{{ q.title }}</h2>
+
+                <p>Difficulty: {{ q.difficulty }}</p>
+
+                <a href="{{ q.link }}" target="_blank">
+
+                    <button>
+                        Solve Problem
+                    </button>
+
+                </a>
+
+            </div>
+
+            <br>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

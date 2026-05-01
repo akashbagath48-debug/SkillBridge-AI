@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Support Center</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="content">
+
+        <div class="card">
+
+            <h1>Support Center</h1>
+
+            <br>
+
+            <form method="POST">
+                <hr>
+
+<h2>Your Tickets</h2>
+
+{% for ticket in tickets %}
+
+    <div class="card">
+
+        <h3>{{ ticket['subject'] }}</h3>
+
+        <p>{{ ticket['message'] }}</p>
+
+        <br>
+
+        <strong>Admin Reply:</strong>
+
+        <p>
+
+            {% if ticket['admin_reply'] %}
+
+                {{ ticket['admin_reply'] }}
+
+            {% else %}
+
+                Waiting for admin response...
+
+            {% endif %}
+
+        </p>
+
+    </div>
+
+    <br>
+
+{% endfor %}
+
+                <input type="text"
+                name="subject"
+                placeholder="Enter Issue Subject"
+                required>
+
+                <br><br>
+
+                <textarea
+                name="message"
+                rows="6"
+                placeholder="Explain your problem..."
+                required></textarea>
+
+                <br><br>
+
+                <button type="submit">
+                    Submit Ticket
+                </button>
+
+            </form>
+
+            <br>
+
+            <a href="/dashboard">
+
+                <button>
+                    Back
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

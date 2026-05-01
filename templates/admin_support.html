@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Admin Support Panel</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="content">
+
+        <h1>Support Tickets</h1>
+
+        <br>
+
+        {% for ticket in tickets %}
+
+            <div class="card">
+
+                <h2>{{ ticket['subject'] }}</h2>
+
+                <p>
+                    <strong>User:</strong>
+                    {{ ticket['username'] }}
+                </p>
+                
+
+                <p>
+                    <strong>Email:</strong>
+                    {{ ticket['email'] }}
+                </p>
+
+                <p>
+                    <strong>Message:</strong>
+                    {{ ticket['message'] }}
+                </p>
+                <br>
+
+<form method="POST"
+action="/reply_ticket/{{ ticket['id'] }}">
+
+    <textarea
+    name="admin_reply"
+    rows="4"
+    placeholder="Write reply..."
+    required></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Send Reply
+    </button>
+
+</form>
+
+            </div>
+
+            <br>
+
+        {% endfor %}
+
+        <a href="/admin_dashboard">
+
+            <button>
+                Back
+            </button>
+
+        </a>
+
+    </div>
+
+</body>
+</html>

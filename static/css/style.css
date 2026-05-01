@@ -1,0 +1,343 @@
+/* =========================
+   GLOBAL STYLING
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+    color:white;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.main-container{
+    display:flex;
+    min-height:100vh;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:260px;
+    background:rgba(15,23,42,0.95);
+    backdrop-filter:blur(15px);
+    padding:30px 20px;
+    position:fixed;
+    height:100%;
+    box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#38bdf8;
+    font-size:30px;
+    letter-spacing:1px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:12px;
+    transition:0.4s ease;
+    font-size:16px;
+}
+
+.sidebar a:hover{
+    background:linear-gradient(90deg,#06b6d4,#3b82f6);
+    transform:translateX(10px);
+    box-shadow:0 0 20px rgba(59,130,246,0.5);
+}
+
+
+/* =========================
+   CONTENT AREA
+========================= */
+
+.content{
+    margin-left:280px;
+    padding:40px;
+    width:100%;
+}
+
+.content h1{
+    font-size:38px;
+    margin-bottom:30px;
+    color:#f8fafc;
+}
+
+
+/* =========================
+   DASHBOARD GRID
+========================= */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+
+/* =========================
+   CARD DESIGN
+========================= */
+
+.card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:30px;
+    transition:0.5s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+    transform:rotate(25deg);
+    transition:0.8s;
+}
+
+.card:hover::before{
+    left:100%;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 15px 35px rgba(56,189,248,0.4);
+}
+
+.card h2{
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#f1f5f9;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#e2e8f0;
+    line-height:1.7;
+}
+
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+
+.card img{
+    border-radius:50%;
+    border:4px solid #38bdf8;
+    object-fit:cover;
+    box-shadow:0 0 25px rgba(56,189,248,0.5);
+    transition:0.4s ease;
+}
+
+.card img:hover{
+    transform:scale(1.08) rotate(3deg);
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+textarea{
+    width:100%;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,0.12);
+    color:white;
+    font-size:15px;
+    margin-top:5px;
+    transition:0.3s ease;
+}
+
+input:focus,
+textarea:focus{
+    background:rgba(255,255,255,0.18);
+    box-shadow:0 0 15px rgba(56,189,248,0.5);
+    transform:scale(1.01);
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#cbd5e1;
+}
+
+
+/* =========================
+   FILE INPUT
+========================= */
+
+input[type="file"]{
+    background:none;
+    padding:5px;
+    color:white;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+    background:linear-gradient(90deg,#06b6d4,#3b82f6);
+    border:none;
+    padding:12px 24px;
+    border-radius:12px;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.4s ease;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 0 20px rgba(59,130,246,0.6);
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a{
+    text-decoration:none;
+}
+
+
+/* =========================
+   TABLE STYLE
+========================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th,
+table td{
+    padding:15px;
+    border:1px solid rgba(255,255,255,0.1);
+    text-align:left;
+}
+
+table th{
+    background:rgba(255,255,255,0.08);
+    color:#38bdf8;
+}
+
+table tr:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#38bdf8;
+    border-radius:10px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.card{
+    animation:fadeIn 0.8s ease;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media(max-width:900px){
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .content{
+        margin-left:0;
+    }
+
+    .main-container{
+        flex-direction:column;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+    .admin-reply{
+    background: #e8f5e9;
+    padding: 10px;
+    margin-top: 10px;
+    border-left: 5px solid green;
+    border-radius: 5px;
+}
+
+}

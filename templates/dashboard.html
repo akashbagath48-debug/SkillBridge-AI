@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- Sidebar -->
+
+        <div class="sidebar">
+
+            <h2>SkillBridge AI</h2>
+
+            <a href="/dashboard">Dashboard</a>
+
+            <a href="/upload">Resume Upload</a>
+
+            <a href="/coding">LeetCode Practice</a>
+
+            <a href="/logout">Logout</a>
+
+        </div>
+
+
+        <!-- Main Content -->
+
+        <div class="content">
+
+            <h1>Welcome {{ username }}</h1>
+
+            <div class="dashboard">
+
+
+                <!-- User Profile -->
+
+                <div class="card">
+
+                    <h2>User Profile</h2>
+
+                    <br>
+
+                    {% if user and user['profile_image'] %}
+
+                        <img
+                        src="/uploads/{{ user['profile_image'] }}"
+                        width="120"
+                        height="120"
+                        style="border-radius:50%; object-fit:cover;">
+
+                    {% endif %}
+
+                    <br><br>
+
+                    <h3>{{ username }}</h3>
+
+                    <br>
+
+                    <a href="/view_profile">
+
+                        <button>
+                            View Profile
+                        </button>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Resume Analyzer -->
+
+                <div class="card">
+
+                    <h2>Resume Analyzer</h2>
+
+                    <p>Upload resume and analyze skills</p>
+
+                    <br>
+
+                    <a href="/upload">
+
+                        <button>
+                            Upload Resume
+                        </button>
+
+                    </a>
+
+                </div>
+
+
+                <!-- AI Assistant -->
+
+                <div class="card">
+
+                    <h2>AI Assistant</h2>
+
+                    <form method="POST"
+                    action="/chatbot">
+
+                        <input type="text"
+                        name="message"
+                        placeholder="Ask AI something..."
+                        required>
+
+                        <br><br>
+
+                        <button type="submit">
+                            Ask AI
+                        </button>
+
+                    </form>
+
+                    {% if user_message %}
+
+                        <br>
+
+                        <h3>You:</h3>
+
+                        <p>{{ user_message }}</p>
+
+                        <h3>AI:</h3>
+
+                        <p>{{ bot_response }}</p>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- InterviewGPT -->
+
+                <div class="card">
+
+                    <h2>InterviewGPT</h2>
+
+                    <form method="POST"
+                    action="/interview_ai">
+
+                        <input type="text"
+                        name="interview_message"
+                        placeholder="Ask interview questions..."
+                        required>
+
+                        <br><br>
+
+                        <button type="submit">
+                            Ask InterviewGPT
+                        </button>
+
+                    </form>
+
+                    {% if interview_response %}
+
+                        <br>
+
+                        <h3>InterviewGPT:</h3>
+
+                        <p>{{ interview_response }}</p>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- LeetCode Practice -->
+
+                <div class="card">
+
+                    <h2>LeetCode Practice</h2>
+
+                    <p>Practice coding interview questions</p>
+
+                    <br>
+
+                    <a href="/coding">
+
+                        <button>
+                            Start Practice
+                        </button>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="card">
+
+    <h2>Support Center</h2>
+
+    <p>Facing any issue? Contact Admin</p>
+
+    <br>
+
+    <a href="/support">
+
+        <button>
+            Raise Ticket
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+</html>

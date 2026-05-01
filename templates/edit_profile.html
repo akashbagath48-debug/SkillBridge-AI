@@ -1,0 +1,70 @@
+<form method="POST"
+action="/profile"
+enctype="multipart/form-data">
+
+    <!-- Profile Image -->
+
+    <input type="file"
+    name="profile_image">
+
+    <br><br>
+
+    <!-- College -->
+
+    <input type="text"
+    name="college"
+    placeholder="College"
+   value="{{ user['college'] }}">
+
+    <br><br>
+
+    <!-- College Address -->
+
+    <input type="text"
+    name="college_address"
+    placeholder="College Address"
+    value="{{ user['college_address'] }}">
+
+    <br><br>
+
+    <!-- Degree -->
+
+    <input type="text"
+    name="degree"
+    placeholder="Degree"
+    value="{{ user['degree'] }}">
+
+    <br><br>
+
+    <!-- Passing Year -->
+
+    <input type="text"
+    name="passing_year"
+    placeholder="Passing Year"
+    value="{{ user['passing_year'] }}">
+
+    <br><br>
+
+    <!-- Skills -->
+
+    <input type="text"
+    name="skills"
+    placeholder="Skills"
+    value="{{ user['skills'] }}">
+
+    <br><br>
+
+    <!-- About -->
+
+    <textarea
+    name="bio"
+    rows="4"
+    style="width:100%; border-radius:8px;">{{ user['bio'] }}</textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Save Profile
+    </button>
+
+</form>

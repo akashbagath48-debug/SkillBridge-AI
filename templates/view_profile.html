@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>View Profile</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="content">
+
+        <div class="card">
+
+            <h1>{{ username }}</h1>
+
+            <br>
+
+            {% if user and user['profile_image'] %}
+
+                <img
+                src="/uploads/{{ user['profile_image'] }}"
+                width="150"
+                height="150"
+                style="border-radius:50%; object-fit:cover;">
+
+            {% endif %}
+
+            <br><br>
+
+            <h3>College</h3>
+
+            <p>{{ user['college'] }}</p>
+
+            <h3>College Address</h3>
+
+            <p>{{ user['college_address'] }}</p>
+
+            <h3>Degree</h3>
+
+            <p>{{ user['degree'] }}</p>
+
+            <h3>Passing Year</h3>
+
+            <p>{{ user['passing_year'] }}</p>
+
+            <h3>Skills</h3>
+
+            <p>{{ user['skills'] }}</p>
+
+            <h3>About</h3>
+
+            <p>{{ user['bio'] }}</p>
+
+            <br>
+
+            <a href="/edit_profile">
+
+                <button>
+                    Edit Profile
+                </button>
+
+            </a>
+
+            <a href="/dashboard">
+
+                <button>
+                    Back
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

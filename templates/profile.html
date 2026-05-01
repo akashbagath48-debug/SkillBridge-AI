@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Profile</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>User Profile</h1>
+
+            <br>
+
+            {% if user[4] %}
+
+                <img
+                src="{{ url_for('static', filename='../uploads/' + user[4]) }}"
+                width="150"
+                height="150"
+                style="border-radius:50%;">
+
+            {% endif %}
+
+            <br><br>
+
+            <form method="POST"
+            enctype="multipart/form-data">
+
+                <input type="file"
+                name="profile_image"
+                required>
+
+                <br><br>
+
+                <button type="submit">
+                    Upload Profile Image
+                </button>
+
+            </form>
+
+            <br>
+
+            <h2>Username</h2>
+
+            <p>{{ user[1] }}</p>
+
+            <h2>Email</h2>
+
+            <p>{{ user[2] }}</p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
