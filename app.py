@@ -28,7 +28,7 @@ db = sqlite3.connect("skillbridge.db", check_same_thread=False)
 
 cursor = db.cursor()
 
-cursor = db.cursor(dictionary=True, buffered=True)
+
 
 
 app.secret_key = "skillbridge_secret"
